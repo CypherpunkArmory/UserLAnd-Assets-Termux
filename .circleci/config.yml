@@ -8,16 +8,10 @@ jobs:
   build_arm:
     machine: true
 
-    working_directory: ~/UserLAnd-Assets-Debian
+    working_directory: ~/UserLAnd-Assets-Promux
 
     steps:
       - checkout
-      - run:
-          name: update packages
-          command: sudo apt-get update
-      - run:
-          name: install binfmt-support
-          command: sudo apt-get install binfmt-support qemu qemu-user-static
       - run:
           name: build arm assets
           command: ./buildArch.sh arm
@@ -29,16 +23,10 @@ jobs:
   build_arm64:
     machine: true
 
-    working_directory: ~/UserLAnd-Assets-Debian
+    working_directory: ~/UserLAnd-Assets-Promux
 
     steps:
       - checkout
-      - run:
-          name: update packages
-          command: sudo apt-get update
-      - run:
-          name: install binfmt-support
-          command: sudo apt-get install binfmt-support qemu qemu-user-static
       - run:
           name: build arm64 assets
           command: ./buildArch.sh arm64
@@ -50,7 +38,7 @@ jobs:
   build_x86:
     machine: true
 
-    working_directory: ~/UserLAnd-Assets-Debian
+    working_directory: ~/UserLAnd-Assets-Promux
 
     steps:
       - checkout
@@ -65,7 +53,7 @@ jobs:
   build_x86_64:
     machine: true
 
-    working_directory: ~/UserLAnd-Assets-Debian
+    working_directory: ~/UserLAnd-Assets-Promux
 
     steps:
       - checkout
