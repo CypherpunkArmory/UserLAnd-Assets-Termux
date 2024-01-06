@@ -34,7 +34,7 @@ esac
 
 mkdir -p release
 cd bootstrap
-tar -czvf release/$1-rootfs.tar.gz .
+tar -czvf ../release/$1-rootfs.tar.gz .
 sed -i 's/←/ /g' SYMLINKS.txt
 sed -i 's/^/ln -s /g' SYMLINKS.txt
 bash SYMLINKS.txt
