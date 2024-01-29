@@ -33,11 +33,15 @@ case "$1" in
 esac
 
 mkdir -p release
-cd bootstrap
+mkdir -p rootfs
+mv bootstrap rootfs/usr
+cd rootfs/usr
 sed -i 's/←/ /g' SYMLINKS.txt
 sed -i 's/^/ln -s /g' SYMLINKS.txt
-cat SYMLINKS.txt
 bash SYMLINKS.txt
+rm SYMLINKS.txt
+cd ..
+mkdir home
 tar -czvf ../release/$1-rootfs.tar.gz .
 cd ..
 mkdir -p release/assets
