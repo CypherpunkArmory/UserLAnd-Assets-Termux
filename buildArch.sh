@@ -40,8 +40,12 @@ sed -i 's/←/ /g' SYMLINKS.txt
 sed -i 's/^/ln -s /g' SYMLINKS.txt
 bash SYMLINKS.txt
 rm SYMLINKS.txt
+echo "export LD_LIBRARY_PATH=" >> etc/bash.bashrc
+echo "export PATH=/usr/bin:/usr/bin/applets" >> etc/bash.bashrc
+echo "cd ~" >> etc/bash.bashrc
 cd ..
 mkdir home
+mkdir home/.termux
 tar -czvf ../release/$1-rootfs.tar.gz .
 cd ..
 mkdir -p release/assets
